@@ -1,36 +1,21 @@
-import { 
-  Layers, 
-  Map as MapIcon, 
-  Download, 
-  Globe, 
-  Database, 
-  Briefcase, 
-  ShieldCheck, 
-  Server, 
-  Zap, 
-  Terminal, 
-  CheckCircle2, 
-  TrendingUp, 
-  RefreshCw, 
-  PieChart, 
-  AlertTriangle, 
-  Award, 
-  Settings,
-  Clock,
-  Scale,
-  ChevronDown,
-  Pause,
-  Play,
-  FileSpreadsheet,
-  Cpu,
-  Wifi,
-  HardDrive,
-  BarChart4,
-  Activity,
-  Maximize2,
-  Info,
-  Search,
-  Filter,
-  Eye,
-  Check
-} from 'lucide-react';
+"use client";
+
+export default function HomePage() {
+  return (
+    <main className="min-h-screen flex items-center justify-center">
+      <div className="text-center space-y-4">
+        <h1 className="text-3xl font-bold">
+          Aurora Core
+        </h1>
+
+        <p className="text-gray-400">
+          Institutional Subsurface Intelligence Platform
+        </p>
+
+        <div className="mt-6 text-sm text-gray-500">
+          Status: Frontend deployed successfully
+        </div>
+      </div>
+    </main>
+  );
+}
