@@ -1,0 +1,8 @@
+
+{
+  "name": "Aurora Core - Institutional Discovery Platform (v12)",
+  "description": "Production-grade Phase 12 platform with 23-commodity matrix scanning, live GEE integration, Bayesian fusion kernels, and ERE volumetric computation.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

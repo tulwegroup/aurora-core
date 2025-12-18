@@ -1,0 +1,53 @@
+
+version: '3.9'
+
+services:
+  # Bayesian Intelligence & Scanning
+  fusion-engine:
+    build: ./backend
+    command: npm run start
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - API_KEY=${API_KEY}
+    networks: [ "aurora-prod" ]
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  scan-controller:
+    build: ./backend
+    command: npm run start
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - GEE_SERVICE_KEY_PATH=${GEE_SERVICE_KEY_PATH}
+    networks: [ "aurora-prod" ]
+    ports: ["4001:4000"]
+
+  # Analytics & Reporting
+  portfolio-service:
+    build: ./backend
+    command: npm run start
+    environment: [ "DATABASE_URL=${DATABASE_URL}" ]
+    networks: [ "aurora-prod" ]
+    ports: ["4005:4000"]
+
+  export-reporting:
+    build: ./backend
+    command: npm run start
+    environment: [ "DATABASE_URL=${DATABASE_URL}" ]
+    networks: [ "aurora-prod" ]
+    ports: ["4006:4000"]
+
+  # Frontend Dashboard
+  frontend:
+    build: .
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+    ports: ["3000:3000"]
+    networks: [ "aurora-prod" ]
+
+networks:
+  aurora-prod:
+    driver: bridge
