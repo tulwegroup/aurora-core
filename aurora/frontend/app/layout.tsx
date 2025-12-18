@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Aurora Subsurface Intelligence",
-  description: "Orbital subsurface intelligence & probabilistic discovery",
+  title: "Aurora Core - Institutional Discovery",
+  description: "Phase 12 Subsurface Intelligence Platform",
 };
 
 export default function RootLayout({
@@ -12,7 +12,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head>
+        <script src="https://cdn.tailwindcss.com"></script>
+      </head>
+      <body className="bg-gray-950 text-white min-h-screen">
+        {children}
+      </body>
     </html>
   );
 }
