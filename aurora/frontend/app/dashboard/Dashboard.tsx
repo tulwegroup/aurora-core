@@ -10,7 +10,8 @@ import {
 } from 'lucide-react';
 
 /* 🔗 PHASE 13: Backend API */
-import { startScan, getDiscoveries } from "@/lib/api";
+import { startScan, getDiscoveries } from "../../lib/api";
+
 
 /* ===================== CONSTANTS ===================== */
 
