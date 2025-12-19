@@ -8,7 +8,7 @@ import {
   Scale, ChevronDown, Pause, Play, Cpu, Wifi, HardDrive, 
   BarChart4, Activity, Maximize2
 } from 'lucide-react';
-import { startScan, pauseScan, resumeScan, getDiscoveries } from '../lib/api';
+import { startScan, pauseScan, resumeScan, getDiscoveries } from '../../lib/api';
 
 const COMMODITIES = [
   "Copper", "Lithium", "Gold", "Silver", "Nickel", "Cobalt",
