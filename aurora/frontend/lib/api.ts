@@ -1,5 +1,6 @@
-// Use the proxy URL instead of direct backend URL
-const API_BASE = '/api/proxy';
+const API_BASE =
+  process.env.NEXT_PUBLIC_API_BASE_URL ||
+  "http://localhost:8000/api";
 
 export interface ScanParams {
   region_id: number;
@@ -68,7 +69,10 @@ export async function resumeScan(scanId: number) {
 
 export async function getDiscoveries() {
   try {
-    const res = await apiFetch(`${API_BASE}/export/portfolio`);
+    const res = await fetch(`${API_BASE}/export/portfolio`);
+    if (res.status === 404) return [];
+    if (!res.ok) throw new Error("Failed to fetch discoveries");
+    
     const contentType = res.headers.get("content-type");
     
     if (contentType && contentType.includes("application/json")) {
